@@ -18,6 +18,9 @@ AutoGrab Your Tabs is a Chrome extension that allows users to select websites fr
 
 4. Click **"Load unpacked"** and select the directory where you saved this project.
 
+
+ ### Link to install from the Chrome Extension store will be added once available.
+  
 ## Usage
 
 1. Ensure you have tabs open for the websites from which you want to gather links.
