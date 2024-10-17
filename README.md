@@ -1,11 +1,12 @@
-# AutoGrab YouTube Tabs
+# AutoGrab Your Tabs
 
-AutoGrab YouTube Tabs is a Chrome extension that collects all open YouTube video links from your browser tabs and downloads them to a text file with a timestamped filename.
+AutoGrab Your Tabs is a Chrome extension that allows users to select websites from open tabs to extract and save their links in a timestamped text file. This is particularly useful for gathering links from specific websites like YouTube, Wikipedia, GitHub, Reddit, and others.
 
 ## Features
 
-- Collects YouTube video links from all open tabs.
-- Downloads the links as a text file with a unique timestamped name.
+- **Select Sites:** Dynamically displays a list of websites from open tabs for user selection.
+- **Targeted Link Collection:** Saves links from selected websites only.
+- **Detailed Filenames:** Downloads links in a text file named after the selected sites and timestamp (e.g., `links_youtube_com_github_com_20241016T123456.txt`).
 
 ## Installation
 
@@ -19,11 +20,14 @@ AutoGrab YouTube Tabs is a Chrome extension that collects all open YouTube video
 
 ## Usage
 
-1. Make sure you have YouTube videos open in different tabs in Chrome.
+1. Ensure you have tabs open for the websites from which you want to gather links.
 
-2. Click on the AutoGrab YouTube Tabs icon in the Chrome toolbar.
+2. Click on the AutoGrab Your Tabs icon in the Chrome toolbar.
 
-3. In the popup, click "Fetch YouTube Links."
+3. In the popup window, you'll see checkboxes for each domain from your open tabs, along with the number of tabs open for each.
 
-4. A text file named like `ytLinks_YYYYMMDDTHHMMSS.txt` will download with all your gathered YouTube links.
+4. **Select the sites** you are interested in by checking the corresponding boxes.
 
+5. Click the **"Fetch Links"** button.
+
+6. The extension will download a text file containing the links from your selected sites, with the filename indicating site names and the current timestamp.

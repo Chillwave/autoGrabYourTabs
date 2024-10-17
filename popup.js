@@ -1,36 +1,73 @@
-document.getElementById('fetchLinks').addEventListener('click', () => {
+document.addEventListener('DOMContentLoaded', function () {
     chrome.tabs.query({}, (tabs) => {
-      const youtubeLinks = tabs
-        .map((tab) => tab.url)
-        .filter((url) => url && url.includes('youtube.com/watch'));
+      let siteCount = {};
   
-      if (youtubeLinks.length > 0) {
-        const outputContent = youtubeLinks.join('\n');
-        const blob = new Blob([outputContent], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
+      // Count tabs per site
+      tabs.forEach(tab => {
+        try {
+          let url = new URL(tab.url);
+          let hostname = url.hostname;
+          siteCount[hostname] = siteCount[hostname] ? siteCount[hostname] + 1 : 1;
+        } catch (e) {
+          console.error('Invalid URL:', tab.url);
+        }
+      });
   
-        // Create a timestamp
-        const now = new Date();
-        const timestamp = now.toISOString().replace(/[:.-]/g, ''); // Remove characters not allowed in filenames
+      // Create the UI
+      const container = document.getElementById('optionsContainer');
+      for (let site in siteCount) {
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = site;
   
-        // Construct the filename with the timestamp
-        const filename = `ytLinks_${timestamp}.txt`;
-  
-        chrome.downloads.download({
-          url: url,
-          filename: filename,
-          saveAs: true
-        }, (downloadId) => {
-          if (chrome.runtime.lastError) {
-            console.error('Download failed:', chrome.runtime.lastError);
-          } else {
-            console.log('Download successful, ID:', downloadId);
-          }
-        });
-      } else {
-        console.log('No YouTube tabs found.');
-        alert('No YouTube tabs found.');
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(`${site} (${siteCount[site]})`));
+        container.appendChild(label);
       }
     });
-  });
   
+    document.getElementById('fetchLinks').addEventListener('click', () => {
+      const selectedSites = Array.from(document.querySelectorAll('#optionsContainer input:checked'))
+        .map(input => input.value);
+  
+      if (selectedSites.length === 0) {
+        alert('No sites selected.');
+        return;
+      }
+  
+      chrome.tabs.query({}, (tabs) => {
+        const selectedLinks = tabs
+          .filter(tab => {
+            try {
+              const url = new URL(tab.url);
+              return selectedSites.includes(url.hostname);
+            } catch (e) {
+              return false;
+            }
+          })
+          .map(tab => tab.url);
+  
+        if (selectedLinks.length) {
+          const outputContent = selectedLinks.join('\n');
+          const blob = new Blob([outputContent], { type: 'text/plain' });
+          const url = URL.createObjectURL(blob);
+  
+          const now = new Date();
+          const timestamp = now.toISOString().replace(/[:.-]/g, '');
+          const siteNames = selectedSites.join('_').replace(/[\W_]+/g, '_').substring(0, 50);  // Use valid characters, and trim length if necessary
+  
+          const filename = `links_${siteNames}_${timestamp}.txt`;
+  
+          chrome.downloads.download({
+            url: url,
+            filename: filename,
+            saveAs: true
+          });
+        } else {
+          alert('No matching links found.');
+        }
+      });
+    });
+  });
+      

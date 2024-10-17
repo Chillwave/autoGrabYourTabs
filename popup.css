@@ -1,40 +1,47 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    width: 200px;
-    min-height: 150px;
-  }
-  
-  .popup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  
-  .icon {
-    width: 96px;  /* Adjust the size of the icon as needed */
-    height: 96px;
-    margin-bottom: 20px;
-  }
-  
-  .fetch-button {
-    width: 100%;  /* Full width button */
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4285f4;  /* Google blue */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .fetch-button:hover {
-    background-color: #357ae8;  /* Darker blue on hover */
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  width: 350px; /* Wider width for the popup */
+  box-sizing: border-box; /* Ensure padding is included in total width */
+}
+
+#popupHeader {
+  display: flex;
+  align-items: center;
+}
+
+#extensionIcon {
+  width: 42px;
+  height: 42px;
+  margin-right: 10px;
+
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+label {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #357ae8;
+}
