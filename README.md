@@ -28,6 +28,6 @@ AutoGrab Your Tabs is a Chrome extension that allows users to select websites fr
 
 4. **Select the sites** you are interested in by checking the corresponding boxes.
 
-5. Click the **"Fetch Links"** button.
+5. Click the **"Exprot Links"** button.
 
 6. The extension will download a text file containing the links from your selected sites, with the filename indicating site names and the current timestamp.
