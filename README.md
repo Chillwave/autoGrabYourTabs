@@ -8,7 +8,9 @@ AutoGrab Your Tabs is a Chrome extension that allows users to select websites fr
 - **Targeted Link Collection:** Saves links from selected websites only.
 - **Detailed Filenames:** Downloads links in a text file named after the selected sites and timestamp (e.g., `links_youtube_com_github_com_20241016T123456.txt`).
 
-## Installation
+[Chrome Web Store: AutoGrab Your Tabs](https://chromewebstore.google.com/detail/autograb-your-tabs/kagdbocipcnadeohkahcghhpcdlmnimo?hl=en&authuser=0)
+
+## Installation (from source)
 
 1. **Download** or **clone** this repository to your local machine.
 
