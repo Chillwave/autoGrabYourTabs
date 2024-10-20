@@ -19,9 +19,6 @@ AutoGrab Your Tabs is a Chrome extension that allows users to select websites fr
 3. Enable **Developer mode** by toggling the switch in the top right corner.
 
 4. Click **"Load unpacked"** and select the directory where you saved this project.
-
-
- ### Link to install from the Chrome Extension store will be added once available.
   
 ## Usage
 
