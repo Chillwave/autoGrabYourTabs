@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "YouTube Link Grabber",
+    "name": "AGYT",
     "version": "1.0",
-    "description": "Fetches YouTube video links from all open tabs.",
+    "description": "Fetches links from open tabs.",
     "permissions": ["tabs", "downloads"],
     "background": {
       "service_worker": "background.js"
